@@ -1,0 +1,24 @@
+application: valheim
+x86:
+    container: ghcr.io/lloesche/valheim-server
+    instanceType:
+        aws: c5a.xlarge
+        linode: g6-standard-4
+volumes:
+    - "$HOME/valheim-server/config:/config"
+    - "$HOME/valheim-server/data:/opt/valheim"
+capAdd:
+    - sys_nice
+driveSize: 8
+clientPort: 2456
+queryPort: 2457
+queryType: a2s
+extraPorts:
+    - "9001:9001/tcp"
+env-map:
+  name: SERVER_NAME
+  world-name: WORLD_NAME
+  password: SERVER_PASS
+  public: SERVER_PUBLIC
+  extra-args: SERVER_ARGS
+  steam-args: STEAMCMD_ARGS

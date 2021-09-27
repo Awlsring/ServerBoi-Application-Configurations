@@ -1,0 +1,28 @@
+application: csgo
+x86:
+    container: cm2network/csgo
+    instanceType:
+        aws: c5a.large
+        linode: g6-standard-2
+driveSize: 40
+clientPort: 27015
+queryPort: 27015
+queryType: a2s
+extraPorts:
+    - "27020:27020/udp"
+env-map:
+  name: SRCDS_HOSTNAME
+  gsl-token: SRCDS_TOKEN
+  password: SRCDS_PW
+  rcon-password: SRCDS_RCONPW
+  max-fps: SRCDS_FPSMAX
+  tick-rate: SRCDS_TICKRATE
+  max-players: SRCDS_MAXPLAYERS
+  map: SRCDS_STARTMAP
+  region: SRCDS_REGION
+  map-group: SRCDS_MAPGROUP
+  extra-args: ADDITIONAL_ARGS
+  game-type: SRCDS_GAMETYPE
+  game-mode: SRCDS_GAMEMODE
+  workshop-map: SRCDS_WORKSHOP_START_MAP
+  workshop-key: SRCDS_WORKSHOP_AUTHKEY
